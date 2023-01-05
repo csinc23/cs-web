@@ -39,6 +39,7 @@ export default function RegisterAsSeller() {
           <img
             className="logosfwImg"
             src={require("../../assets/images/sfw.png")}
+            alt="img"
           />
         </div>
         <div className="loginWrapper">
@@ -90,6 +91,7 @@ export default function RegisterAsSeller() {
           <img
             className="categoriesTempImgFooter"
             src={require("../../assets/images/footer1.jpg")}
+            alt="img"
           />
         </div>
       </div>

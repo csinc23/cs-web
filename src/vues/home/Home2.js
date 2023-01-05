@@ -30,6 +30,7 @@ export default function () {
             <img
               className="home2WhyUsElementImg"
               src={require("../../assets/images/icons/téléchargé.png")}
+              alt="img"
             />
             <text className="home2WhyUsElementText">
               Téléchargement illimité
@@ -42,6 +43,7 @@ export default function () {
             <img
               className="home2WhyUsElementImg"
               src={require("../../assets/images/icons/picsIcon.jpg")}
+              alt="img"
             />
             <text className="home2WhyUsElementText">
               Produits toujours en dispo
@@ -54,6 +56,7 @@ export default function () {
             <img
               className="home2WhyUsElementImg"
               src={require("../../assets/images/icons/licenseIcon.png")}
+              alt="img"
             />
             <text className="home2WhyUsElementText">License simple</text>
             <text className="home2WhyUsElementDescription">
@@ -64,6 +67,7 @@ export default function () {
             <img
               className="home2WhyUsElementImg"
               src={require("../../assets/images/icons/resilitionIcon.jpg")}
+              alt="img"
             />
             <text className="home2WhyUsElementText">
               Résiliation à tout moment

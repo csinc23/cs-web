@@ -23,6 +23,7 @@ export default function Home() {
           <img
             className="categoriesTempImg"
             src={require("../../assets/images/temp/cattegories.PNG")}
+            alt="img"
           />
         </div>
         {/* <div className="categoriesTempx">
@@ -32,6 +33,7 @@ export default function Home() {
           <img
             className="categoriesTempImg1"
             src={require("../../assets/images/temp/blueImg.PNG")}
+            alt="img"
           />
         </div>
         <CardsContainer />
@@ -39,6 +41,7 @@ export default function Home() {
           <img
             className="categoriesTempImg1"
             src={require("../../assets/images/temp/sameee.PNG")}
+            alt="img"
           />
         </div>
         <ThemesDiv />
@@ -46,6 +49,7 @@ export default function Home() {
           <img
             className="categoriesTempImg2"
             src={require("../../assets/images/temp/same.PNG")}
+            alt="img"
           />
         </div>
         {/* <div className="categoriesTempy">
@@ -59,12 +63,14 @@ export default function Home() {
           <img
             className="categoriesTempImg1"
             src={require("../../assets/images/temp/join.PNG")}
+            alt="img"
           />
         </div>
         <div className="categoriesTemp2">
           <img
             className="categoriesTempImg1"
             src={require("../../assets/images/temp/easy.PNG")}
+            alt="img"
           />
         </div>
         {/* <DarkFooter /> */}

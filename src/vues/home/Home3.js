@@ -41,6 +41,7 @@ export default function Home3() {
         <img
           src={require("../../assets/images/backgrounds/21.jpg")}
           className="home3Image"
+          alt="img"
         />
         <div className="home3ImageTexts">
           <text className="Home3ImageText1">Organic All Natural</text>
@@ -54,6 +55,7 @@ export default function Home3() {
           <img
             className="home3RBImg"
             src={require("../../assets/images/divs/RoundButtons.PNG")}
+            alt="img"
           />
         </div>
         <div className="home3ProductsSellsContainer">
@@ -92,6 +94,7 @@ export default function Home3() {
           <img
             className="home3CImg"
             src={require("../../assets/images/backgrounds/3.jpg")}
+            alt="img"
           />
           <div className="home3CTextContainer">
             <text className="home3CText">
@@ -159,6 +162,7 @@ export default function Home3() {
           <img
             className="home3BottomImg"
             src={require("../../assets/images/backgrounds/essentialOils.jpg")}
+            alt="img"
           />
           <div className="home3BottomTexts">
             <text className="home3BottomH1">made with essential oils</text>
@@ -177,6 +181,7 @@ export default function Home3() {
                 <img
                   className="home3FooterUpperLeftImage"
                   src={require("../../assets/images/sfw.png")}
+                  alt="img"
                 />
               </div>
               <div className="home3FooterUpperLinks">
@@ -243,7 +248,7 @@ function ProductCard({ product, image }) {
   return (
     <div className="home3ProductCard">
       <div className="home3ProductCardImageC">
-        <img src={image} className="home3ProductCardImage" />
+        <img src={image} className="home3ProductCardImage" alt="img" />
       </div>
       <div className="home3ProductBottom">
         <div className="home3ProductBottomLeft">

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import Login from "./vues/login/Login";
 import Register from "./vues/register/Register";
-// import Navigation from "./navigation/Navigation";
 import { connect } from "react-redux";
 import Home3 from "./vues/home/Home3";
 import AddProduct from "./vues/adminSpace/productsManagement/addProduct/AddProduct";
@@ -19,6 +18,9 @@ const mapStateToProps = (state) => {
 
 function App({ dispatch, user }) {
   // const { user } = useContext(AuthContext);
+  const diispatch = useCallback((action) => {
+    dispatch(action);
+  }, []);
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user")) !== null) {
@@ -26,9 +28,9 @@ function App({ dispatch, user }) {
         type: "SIGN_IN",
         value: { user: JSON.parse(localStorage.getItem("user")) || null },
       };
-      dispatch(action);
+      diispatch(action);
     }
-  }, [localStorage.getItem("user")]);
+  }, [localStorage.getItem("user"), diispatch]);
 
   return (
     <Router>

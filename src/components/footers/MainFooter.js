@@ -14,6 +14,7 @@ export default function MainFooter() {
             <img
               className="home3FooterUpperLeftImage"
               src={require("../../assets/images/sfw.png")}
+              alt="img"
             />
           </div>
           <div className="home3FooterUpperLinks">

@@ -71,7 +71,7 @@ function ProductCard({ product }) {
   return (
     <div className="home3ProductCard">
       <div className="home3ProductCardImageC">
-        <img src={image} className="home3ProductCardImage" />
+        <img src={image} className="home3ProductCardImage" alt="img" />
       </div>
       <div className="home3ProductBottom">
         <div className="home3ProductBottomLeft">

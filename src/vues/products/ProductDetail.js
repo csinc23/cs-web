@@ -40,7 +40,7 @@ export default function ProductDetail() {
           <div className="productDetailData">
             <div className="productDetailDataLeft">
               <div className="productDetailImageContainer">
-                <img className="productDetailImage" src={image} />
+                <img className="productDetailImage" src={image} alt="img" />
               </div>
 
               <div className="productDetailPrice">
