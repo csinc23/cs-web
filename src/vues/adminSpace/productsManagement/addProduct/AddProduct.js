@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState, useEffect } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
 import "./addProduct.css";
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 };
 
 function AddProduct({ user }) {
-  const [category, setCategory] = useState("Themes");
+  // const [category, setCategory] = useState("Themes");
   const [item, setItem] = useState();
   const productName = useRef();
   const description = useRef();
@@ -48,7 +48,7 @@ function AddProduct({ user }) {
         console.log("image added successfully ", res.data.imageCreated);
         addProduct({
           owner: { id: user._id, name: user.name },
-          category: category,
+          // category: category,
           name: productName.current.value,
           pictures: [res.data.imageCreated._id],
           description: description.current.value,
