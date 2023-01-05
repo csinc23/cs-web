@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import Login from "./vues/login/Login";
 import Register from "./vues/register/Register";
 import { connect } from "react-redux";
