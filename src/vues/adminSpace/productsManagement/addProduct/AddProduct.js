@@ -1,12 +1,6 @@
 import React, { useContext, useRef, useState, useEffect } from "react";
 import { AuthContext } from "../../../../context/AuthContext";
-import {
-  CircularProgress,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-} from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import "./addProduct.css";
 import { addProduct } from "../../../../service/apiCalls";
 import { connect } from "react-redux";
@@ -27,7 +21,6 @@ function AddProduct({ user }) {
   const price = useRef();
   const oldPrice = useRef();
   const { isFetching } = useContext(AuthContext);
-  const [categories, setCategories] = useState();
 
   // useState(() => {
   //   getCategories()
@@ -74,10 +67,10 @@ function AddProduct({ user }) {
       });
   };
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    setCategory(e.target.value);
-  };
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   setCategory(e.target.value);
+  // };
 
   return (
     <div className="addProduct">

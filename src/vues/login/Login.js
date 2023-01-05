@@ -26,7 +26,7 @@ function Login({ dispatch }) {
       { email: email.current.value, password: password.current.value },
       dispatch
     ).then((response) => {
-      if (response == "SUCCESS") {
+      if (response === "SUCCESS") {
         console.log("Logged in");
         history("/home");
       } else {

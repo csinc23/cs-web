@@ -18,9 +18,7 @@ const mapStateToProps = (state) => {
 
 function App({ dispatch, user }) {
   // const { user } = useContext(AuthContext);
-  const diispatch = useCallback((action) => {
-    dispatch(action);
-  }, []);
+  const diispatch = dispatch;
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user")) !== null) {
