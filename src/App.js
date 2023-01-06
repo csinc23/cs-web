@@ -20,6 +20,7 @@ function App(props) {
   // const { user } = useContext(AuthContext);
   const dispatch = props?.dipatch;
   const user = props?.user;
+  const storageUser = localStorage?.getItem("user");
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user")) !== null) {
@@ -29,7 +30,7 @@ function App(props) {
       };
       dispatch(action);
     }
-  }, [localStorage.getItem("user"), dispatch]);
+  }, [storageUser, dispatch]);
 
   return (
     <Router>
