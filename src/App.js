@@ -16,8 +16,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-function App({ dispatch, user }) {
+function App(props) {
   // const { user } = useContext(AuthContext);
+  const dispatch = props?.dipatch;
+  const user = props?.user;
 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user")) !== null) {
