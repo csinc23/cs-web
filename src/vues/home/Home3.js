@@ -161,7 +161,7 @@ export default function Home3() {
         <div className="home3BottomImageContainer">
           <img
             className="home3BottomImg"
-            src={require("../../assets/images/backgrounds/essentialOils.jpg")}
+            src={require("../../assets/images/backgrounds/6.jpeg")}
             alt="img"
           />
           <div className="home3BottomTexts">
