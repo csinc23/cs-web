@@ -1,11 +1,9 @@
 import axios from "axios";
+import { api } from "../global";
 
 export const loginCall = async (userCredential, dispatch) => {
   try {
-    const res = await axios.post(
-      "http://localhost:3330/api/auth/login",
-      userCredential
-    );
+    const res = await axios.post(`${api}/api/auth/login`, userCredential);
     const action = { type: "SIGN_IN", value: { user: res.data } };
     dispatch(action);
     localStorage.setItem("user", JSON.stringify(res.data));
@@ -19,7 +17,7 @@ export const loginCall = async (userCredential, dispatch) => {
 
 export const addProduct = async (product) => {
   try {
-    const res = await axios.post("http://localhost:3330/api/product/add", {
+    const res = await axios.post(`${api}/api/product/add`, {
       product: product,
     });
     return res;
@@ -31,7 +29,7 @@ export const addProduct = async (product) => {
 
 export const getProducts = async () => {
   try {
-    const res = await axios.get("http://localhost:3330/api/product/all");
+    const res = await axios.get(`${api}/api/product/add/all`);
     return res;
   } catch (err) {
     console.log(err);
@@ -41,7 +39,7 @@ export const getProducts = async () => {
 
 export const getProductsByCategory = async (category) => {
   try {
-    const res = await axios.get(`http://localhost:3330/api/product/category`, {
+    const res = await axios.get(`${api}/api/product/category`, {
       params: {
         category,
       },
@@ -55,7 +53,7 @@ export const getProductsByCategory = async (category) => {
 
 export const getProductById = async (id) => {
   try {
-    const res = await axios.get(`http://localhost:3330/api/product/one`, {
+    const res = await axios.get(`${api}/api/product/one`, {
       params: {
         id,
       },
@@ -69,7 +67,7 @@ export const getProductById = async (id) => {
 
 export const getCategories = async () => {
   try {
-    const res = await axios.get("http://localhost:3330/api/category/all");
+    const res = await axios.get(`${api}/api/category/all`);
     return res;
   } catch (err) {
     console.log(err);
@@ -80,7 +78,7 @@ export const getCategories = async () => {
 export const addCategory = async (category) => {
   try {
     const res = await axios.post(
-      "http://localhost:3330/api/category/add",
+      `${api}/api/category/add`,
       {
         category: category,
       }

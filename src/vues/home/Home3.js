@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import MainFooter from "../../components/footers/MainFooter";
+import { api, media } from "../../global";
 
 export default function Home3() {
   const [image, setImage] = useState();
@@ -12,11 +13,11 @@ export default function Home3() {
   const productId = "63b4944644291211a0672bd9";
   useEffect(() => {
     axios
-      .get(`http://localhost:3330/api/product/one/${productId}`)
+      .get(`${api}/api/product/one/${productId}`)
       .then((p) => {
         setProduct(p.data);
         axios
-          .get(`http://localhost:4000/upload/one?id=${p.data.pictures[0]}`)
+          .get(`${media}/upload/one?id=${p.data.pictures[0]}`)
           .then((res) => {
             setImage(res.data.image.image);
           })

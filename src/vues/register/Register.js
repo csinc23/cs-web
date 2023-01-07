@@ -4,6 +4,7 @@ import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import EcommHeader from "../../components/headers/EcommHeader";
 import MainFooter from "../../components/footers/MainFooter";
+import { api } from "../../global";
 
 export default function Register() {
   const username = useRef();
@@ -25,7 +26,7 @@ export default function Register() {
       };
       console.log("User : ", user);
       try {
-        await axios.post("http://localhost:3330/api/auth/register", user);
+        await axios.post(`${api}/api/auth/register`, user);
         history("/home");
       } catch (err) {
         console.log(err);

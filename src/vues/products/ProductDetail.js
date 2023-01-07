@@ -6,6 +6,7 @@ import EcommHeader from "../../components/headers/EcommHeader";
 import "./productDetail.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MainFooter from "../../components/footers/MainFooter";
+import { api, media } from "../../global";
 
 export default function ProductDetail() {
   const { search } = useLocation();
@@ -14,12 +15,12 @@ export default function ProductDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3330/api/product/one/${search.slice(1)}`)
+      .get(`${api}/api/product/one/${search.slice(1)}`)
       .then((p) => {
         console.log(p);
         setProduct(p.data);
         axios
-          .get(`http://localhost:4000/upload/one?id=${p.data.pictures[0]}`)
+          .get(`${media}/upload/one?id=${p.data.pictures[0]}`)
           .then((res) => {
             setImage(res.data.image.image);
           })

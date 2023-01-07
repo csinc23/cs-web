@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { api, media } from "../../global";
 import MainFooter from "../../components/footers/MainFooter";
 import EcommHeader from "../../components/headers/EcommHeader";
 import "./productsList.css";
@@ -12,7 +13,7 @@ export default function ProductsList() {
   const [resultsRender, setResultsRender] = useState([]);
   useState(() => {
     axios
-      .get("http://localhost:3330/api/product/all")
+      .get(`${api}/api/product/all`)
       .then((response) => {
         for (var i = 0; i < response.data.length; i += 3) {
           setResultsRender([
@@ -71,7 +72,7 @@ function ProductCard({ product }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/upload/one?id=${product.pictures[0]}`)
+      .get(`${media}/upload/one?id=${product.pictures[0]}`)
       .then((res) => {
         setImage(res.data.image.image);
       })

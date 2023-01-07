@@ -3,6 +3,7 @@ import { useRef } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/headers/Header";
+import { api } from "../../global";
 
 export default function RegisterAsSeller() {
   const username = useRef();
@@ -23,7 +24,7 @@ export default function RegisterAsSeller() {
         role: "SELLER",
       };
       try {
-        await axios.post("http://localhost:3330/api/auth/register", user);
+        await axios.post(`${api}/api/auth/register`, user);
         history("/home");
       } catch (err) {
         console.log(err);

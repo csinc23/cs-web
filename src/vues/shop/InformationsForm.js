@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { api } from "../../global";
 import MainFooter from "../../components/footers/MainFooter";
 import EcommHeader from "../../components/headers/EcommHeader";
 import "./informationsForm.css";
@@ -22,7 +23,7 @@ export default function InformationsForm() {
       role: "CLIENT",
     };
     try {
-      await axios.post("http://localhost:3330/api/sale/add", { sale: sale });
+      await axios.post(`${api}/api/sale/add`, { sale: sale });
       alert("Commande enregistrée !");
       setTimeout(() => {}, 3000);
       history("/home");

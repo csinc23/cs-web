@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Header from "../../../components/headers/Header";
 import axios from "axios";
+import { media } from "../../../global";
 
 const mapStateToProps = (state) => {
   return {
@@ -40,7 +41,7 @@ function AddCategory({ user }) {
     formData.append("image", item);
 
     axios
-      .post("http://localhost:4000/upload/image", formData, {})
+      .post(`${media}/upload/image`, formData, {})
       .then((res) => {
         console.log("image added successfully ", res.data.imageCreated);
         addCategory({

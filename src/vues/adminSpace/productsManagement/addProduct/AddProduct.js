@@ -6,6 +6,7 @@ import { addProduct } from "../../../../service/apiCalls";
 import { connect } from "react-redux";
 import axios from "axios";
 import EcommHeader from "../../../../components/headers/EcommHeader";
+import { media } from "../../../../global";
 
 const mapStateToProps = (state) => {
   return {
@@ -43,7 +44,7 @@ function AddProduct({ user }) {
 
     formData.append("image", item);
     axios
-      .post("http://localhost:4000/upload/image", formData, {})
+      .post(`${media}/upload/image`, formData, {})
       .then((res) => {
         console.log("image added successfully ", res.data.imageCreated);
         addProduct({
