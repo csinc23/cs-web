@@ -25,6 +25,7 @@ export default function ProductsList() {
           ]);
         }
         setProducts(response.data);
+        console.log(products);
       })
       .catch((error) => {
         console.log("error: ", error);
