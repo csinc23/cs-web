@@ -35,36 +35,36 @@ export default function Register() {
 
   return (
     <>
-      <EcommHeader />
       <div className="register">
+        <EcommHeader />
         <div className="logoSfwContainer">
           <img
             className="logosfwImg"
-            src={require("../../assets/images/sfw.png")}
+            src={require("../../assets/images/logos/4.png")}
             alt="img"
           />
         </div>
-        <div className="loginWrapper">
-          <div className="loginRight">
-            <form className="loginBox" onSubmit={handleClick}>
+        <div className="registerWrapper">
+          <div className="registerRight">
+            <form className="registerBox" onSubmit={handleClick}>
               <input
                 placeholder="Username"
                 required
                 ref={username}
-                className="loginInput"
+                className="registerInput"
               />
               <input
                 placeholder="Email"
                 required
                 ref={email}
-                className="loginInput"
+                className="registerInput"
                 type="email"
               />
               <input
                 placeholder="Password"
                 required
                 ref={password}
-                className="loginInput"
+                className="registerInput"
                 type="password"
                 minLength="6"
               />
@@ -72,14 +72,14 @@ export default function Register() {
                 placeholder="Password confirmation"
                 required
                 ref={passwordAgain}
-                className="loginInput"
+                className="registerInput"
                 type="password"
               />
-              <button className="loginButton" type="submit">
+              <button className="registerButton" type="submit">
                 Sign Up
               </button>
               <button
-                className="loginRegisterButton"
+                className="registerRegisterButton"
                 onClick={() => {
                   history("/login");
                 }}

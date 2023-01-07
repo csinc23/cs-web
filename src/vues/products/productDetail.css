@@ -1,5 +1,6 @@
 .productDetailContainer {
-  background-color: #f6fffd;
+  /* background-color: #f6fffd; */
+  background-image: url("../../assets/images/backgrounds/100.jpg");
   width: 100vw;
   display: flex;
   align-items: center;

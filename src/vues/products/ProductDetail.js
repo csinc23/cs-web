@@ -1,7 +1,7 @@
 import { Button, IconButton } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import EcommHeader from "../../components/headers/EcommHeader";
 import "./productDetail.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -52,7 +52,14 @@ export default function ProductDetail() {
                   <text className="productDetailPrice">{product.price} dh</text>
                 </div>
                 <div className="productDetailPriceIcon">
-                  <IconButton color="success">
+                  <IconButton
+                    component={Link}
+                    to={{
+                      pathname: "/buy",
+                      search: product._id,
+                    }}
+                    color="success"
+                  >
                     <ShoppingCartIcon fontSize="large" />
                   </IconButton>
                 </div>

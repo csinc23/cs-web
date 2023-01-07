@@ -8,8 +8,8 @@
 }
 
 .logosfwImg {
-  width: 20vh;
-  height: 20vh;
+  width: 30vh;
+  height: 30vh;
   border-radius: 10px;
   /* margin-top: 5vh; */
 }
@@ -27,13 +27,12 @@
 }
 
 .loginWrapper {
-  /* width: 100%; */
+  width: 60%;
   height: 70%;
   display: flex;
-  /* margin-bottom: 7vh; */
+  margin-bottom: 7vh;
 }
 
-.loginLeft,
 .loginRight {
   /* flex: 1; */
   display: flex;
@@ -57,12 +56,12 @@
 .loginBox {
   height: 300px;
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(48, 30, 45);
+  background-color: rgb(202, 192, 200);
 }
 
 .loginInput {

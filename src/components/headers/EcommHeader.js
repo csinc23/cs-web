@@ -31,7 +31,7 @@ function EcommHeader({ user, dispatch, categories }) {
           >
             <img
               className="logo"
-              src={require("../../assets/images/sfw.png")}
+              src={require("../../assets/images/logos/1.png")}
               alt=""
             />
           </div>

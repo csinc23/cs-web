@@ -9,17 +9,27 @@ import "./productsList.css";
 
 export default function ProductsList() {
   const [products, setProducts] = useState();
+  const [resultsRender, setResultsRender] = useState([]);
   useState(() => {
     axios
       .get("http://localhost:3330/api/product/all")
       .then((response) => {
-        console.log(response);
+        for (var i = 0; i < response.data.length; i += 3) {
+          setResultsRender([
+            ...resultsRender,
+            <div key={i}>
+              {response.data.slice(i, i + 3).map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
+            </div>,
+          ]);
+        }
         setProducts(response.data);
       })
       .catch((error) => {
         console.log("error: ", error);
       });
-  });
+  }, []);
   return (
     <div className="productsListContainer">
       <EcommHeader />
@@ -39,13 +49,14 @@ export default function ProductsList() {
           </div>
         </div>
         <div className="productsListCards">
-          {products && products !== null ? (
+          {/* {products && products !== null ? (
             <div>
               {products.map((p) => {
                 return <ProductCard key={p._id} product={p} />;
               })}
             </div>
-          ) : null}
+          ) : null} */}
+          {resultsRender}
         </div>
       </div>
       <MainFooter />

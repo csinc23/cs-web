@@ -42,7 +42,7 @@ function Login({ dispatch }) {
         <div className="logoSfwContainer">
           <img
             className="logosfwImg"
-            src={require("../../assets/images/sfw.png")}
+            src={require("../../assets/images/logos/4.png")}
             alt="img"
           />
         </div>

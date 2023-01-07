@@ -8,6 +8,7 @@ import Home3 from "./vues/home/Home3";
 import AddProduct from "./vues/adminSpace/productsManagement/addProduct/AddProduct";
 import ProductDetail from "./vues/products/ProductDetail";
 import ProductsList from "./vues/products/ProductsList";
+import InformationsForm from "./vues/shop/InformationsForm";
 
 const mapStateToProps = (state) => {
   return {
@@ -44,6 +45,7 @@ function App(props) {
         <Route path="/productDetail" element={<ProductDetail />}></Route>
         <Route path="/productsList" element={<ProductsList />}></Route>
         <Route path="/home" element={<Home3 />} />
+        <Route path="/buy" element={<InformationsForm />} />
         <Route
           path="/product/add"
           element={

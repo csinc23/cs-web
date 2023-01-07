@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import EcommHeader from "../../components/headers/EcommHeader";
 import "./Home3.css";
-// import IconButton from "@material-ui/core/IconButton";
-// import SaveAltIcon from "@mui/icons-material/SaveAlt";
-// import DownloadIcon from "@mui/icons-material/Download";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import GoogleIcon from "@mui/icons-material/Google";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import axios from "axios";
+import MainFooter from "../../components/footers/MainFooter";
 
 export default function Home3() {
   const [image, setImage] = useState();
@@ -44,8 +38,15 @@ export default function Home3() {
           alt="img"
         />
         <div className="home3ImageTexts">
-          <text className="Home3ImageText1">Organic All Natural</text>
-          <text className="Home3ImageText2">Organic All Natural</text>
+          <text className="Home3ImageText1">Bienvenue Sur Notre Boutique</text>
+          <text className="Home3ImageText2">
+            Des Produits Qui Feront Briller Votre Journée !
+          </text>
+          <img
+            className="home3HeaderImg"
+            src={require("../../assets/images/logos/4.png")}
+            alt="img"
+          />
           <div className="Home3ImageText3Container">
             <text className="Home3ImageText3">Organic All Natural</text>
           </div>
@@ -84,7 +85,7 @@ export default function Home3() {
               variant="contained"
               color="success"
               component={Link}
-              to="/products"
+              to="/productsList"
             >
               View More
             </Button>
@@ -107,10 +108,13 @@ export default function Home3() {
                 <div className="home3CBodyRightBottom">
                   <text className="home3CText2">
                     <i>
-                      We make special products... We make special products... We
-                      make special products... We make special products... We
-                      make special products... We make special products... We
-                      make special products... We make special products...
+                      Produits cosmétiques et de beauté - la boutique en ligne
+                      pour tout ce qui est beauté. Cosmétiques et produits de
+                      beauté dans notre boutique en ligne - l'endroit idéal pour
+                      trouver tout ce dont tu as besoin pour ton maquillage.
+                      Nous proposons une large gamme de produits de marque :
+                      Maquillage, soins de la peau, soins capillaires et
+                      parfums.
                     </i>
                   </text>
                 </div>
@@ -151,7 +155,7 @@ export default function Home3() {
               variant="contained"
               color="success"
               component={Link}
-              to="/products"
+              to="/productsList"
             >
               View More
             </Button>
@@ -165,79 +169,16 @@ export default function Home3() {
             alt="img"
           />
           <div className="home3BottomTexts">
-            <text className="home3BottomH1">made with essential oils</text>
+            <text className="home3BottomH1">Made with essential oils</text>
             <text className="home3BottomH2">
               Luxury Products Delivered within 24H - 48h
             </text>
             <text className="home3BottomH3">
-              unique products with unique discounts
+              Unique products with unique discounts
             </text>
           </div>
         </div>
-        <div className="home3FooterContainer">
-          <div className="home3Footer">
-            <div className="home3FooterUpper">
-              <div className="home3FooterUpperLeft">
-                <img
-                  className="home3FooterUpperLeftImage"
-                  src={require("../../assets/images/sfw.png")}
-                  alt="img"
-                />
-              </div>
-              <div className="home3FooterUpperLinks">
-                <div className="home3FooterUpperLinksRow">
-                  <div className="home3FooterLink">
-                    <text className="home3FooterLinksText">Home</text>
-                  </div>
-                  <div className="home3FooterLink">
-                    <text className="home3FooterLinksText">About</text>
-                  </div>
-                  <div className="home3FooterLink">
-                    <text className="home3FooterLinksText">FAQ</text>
-                  </div>
-                </div>
-                <div className="home3FooterUpperLinksRow">
-                  <div className="home3FooterLink">
-                    <text className="home3FooterLinksText">Sign Up</text>
-                  </div>
-                  <div className="home3FooterLink">
-                    <text className="home3FooterLinksText">Log In</text>
-                  </div>
-                  <div className="home3FooterLink">
-                    <text className="home3FooterLinksText">Cart</text>
-                  </div>
-                </div>
-                <div className="home3FooterUpperLinksRow">
-                  <div className="home3FooterLink">
-                    <text className="home3FooterLinksText">Blog</text>
-                  </div>
-                  <div className="home3FooterLink">
-                    <text className="home3FooterLinksText">Contact Us</text>
-                  </div>
-                </div>
-              </div>
-              <div className="home3FooterUpperIcons">
-                <div className="home3FooterIcon">
-                  <FacebookIcon />
-                </div>
-                <div className="home3FooterIcon">
-                  <TwitterIcon />
-                </div>
-                <div className="home3FooterIcon">
-                  <GoogleIcon />
-                </div>
-                <div className="home3FooterIcon">
-                  <InstagramIcon />
-                </div>
-              </div>
-            </div>
-            <div className="home3FooterBottom">
-              <text className="home3FooterBottomText">
-                Copyright 2023, Houssame Inc.
-              </text>
-            </div>
-          </div>
-        </div>
+        <MainFooter />
         <div style={{ height: "10vh" }}></div>
       </div>
     </div>

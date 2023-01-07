@@ -1,5 +1,5 @@
 .headerContainer {
-  width: 100%;
+  width: 100vw;
   /* background-image: linear-gradient(to right, #f3f3a3, #f0eca9); */
   background-color: transparent;
   height: 8vh;
@@ -8,8 +8,10 @@
   padding-top: 2vh;
   position: relative;
   z-index: 1;
-  border-bottom: 1px solid rgb(86, 86, 86);
-  border-radius: 10px;
+  /* border-bottom: 1px solid rgb(86, 86, 86); */
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-shadow: inset 0 0 4px rgb(86, 86, 86);
 }
 
 .topHeader {
@@ -24,6 +26,16 @@
   width: 30%;
 }
 
+.logo {
+  width: 5vw;
+  height: 8vh;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-left: 4vw;
+  margin-top: 3vh;
+  cursor: pointer;
+}
+/* 
 @media (prefers-reduced-motion: no-preference) {
   .logo {
     animation: logo-spin infinite 5s linear;
@@ -44,7 +56,7 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 /* .logo {
     width: 45px;
