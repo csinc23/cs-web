@@ -8,22 +8,15 @@ import MainFooter from "../../components/footers/MainFooter";
 import { api, media } from "../../global";
 
 export default function Home3() {
-  const [image, setImage] = useState();
+  // const [image, setImage] = useState();
   const [product, setProduct] = useState();
-  const productId = "63b4944644291211a0672bd9";
+  const productId = "63bc610b4fb44700296b93ff";
   useEffect(() => {
     axios
       .get(`${api}/api/product/one/${productId}`)
       .then((p) => {
         setProduct(p.data);
-        axios
-          .get(`${media}/upload/one?id=${p.data.pictures[0]}`)
-          .then((res) => {
-            setImage(res.data.image.image);
-          })
-          .catch((err) => {
-            console.log("Error : ", err);
-          });
+        // setImage(`${media}/files/${p.data.pictures[0]}`);
       })
       .catch((err) => {
         console.log("Error : ", err);
@@ -75,9 +68,9 @@ export default function Home3() {
                   justifyContent: "space-evenly",
                 }}
               >
-                <ProductCard product={product} image={image} />
-                <ProductCard product={product} image={image} />
-                <ProductCard product={product} image={image} />
+                <ProductCard product={product} />
+                <ProductCard product={product} />
+                <ProductCard product={product} />
               </div>
             ) : null}
           </div>
@@ -145,9 +138,9 @@ export default function Home3() {
                   justifyContent: "space-evenly",
                 }}
               >
-                <ProductCard product={product} image={image} />
-                <ProductCard product={product} image={image} />
-                <ProductCard product={product} image={image} />
+                <ProductCard product={product} />
+                <ProductCard product={product} />
+                <ProductCard product={product} />
               </div>
             ) : null}
           </div>
@@ -186,11 +179,15 @@ export default function Home3() {
   );
 }
 
-function ProductCard({ product, image }) {
+function ProductCard({ product }) {
   return (
     <div className="home3ProductCard">
       <div className="home3ProductCardImageC">
-        <img src={image} className="home3ProductCardImage" alt="img" />
+        <img
+          src={`${media}/files/${product.pictures[0]}`}
+          className="home3ProductCardImage"
+          alt="img"
+        />
       </div>
       <div className="home3ProductBottom">
         <div className="home3ProductBottomLeft">

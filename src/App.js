@@ -9,6 +9,7 @@ import AddProduct from "./vues/adminSpace/productsManagement/addProduct/AddProdu
 import ProductDetail from "./vues/products/ProductDetail";
 import ProductsList from "./vues/products/ProductsList";
 import InformationsForm from "./vues/shop/InformationsForm";
+import AddProduct2 from "./vues/adminSpace/productsManagement/addProduct/AddProduct2";
 
 const mapStateToProps = (state) => {
   return {
@@ -17,10 +18,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-function App(props) {
+function App({ user, dispatch }) {
   // const { user } = useContext(AuthContext);
-  const dispatch = props?.dipatch;
-  const user = props?.user;
+  // const dispatch = props?.dipatch;
+  // const user = props?.user;
   const storageUser = localStorage?.getItem("user");
 
   useEffect(() => {
@@ -52,7 +53,7 @@ function App(props) {
             !user ? (
               <Home3 />
             ) : user.role === "SELLER" || user.role === "ADMIN" ? (
-              <AddProduct />
+              <AddProduct2 />
             ) : (
               <Home3 />
             )

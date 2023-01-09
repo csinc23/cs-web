@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { api, media } from "../../global";
@@ -18,7 +18,7 @@ export default function ProductsList() {
         for (var i = 0; i < response.data.length; i += 3) {
           setResultsRender([
             ...resultsRender,
-            <div key={i}>
+            <div style={{ flexDirection: "row", marginBottom: "4vh" }} key={i}>
               {response.data.slice(i, i + 3).map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
@@ -26,7 +26,6 @@ export default function ProductsList() {
           ]);
         }
         setProducts(response.data);
-        console.log(products);
       })
       .catch((error) => {
         console.log("error: ", error);
@@ -36,7 +35,7 @@ export default function ProductsList() {
     <div className="productsListContainer">
       <EcommHeader />
       <div className="productsListHeaderText">
-        <text className="productsListHeaderTextTitle">Slogan</text>
+        <text className="productsListHeaderTextTitle">Sentez la beauté</text>
         <text className="productsListHeaderTextDesc">
           Trouvez des produits qui vous conviennent le plus ! Et bien de nouvau
           produits ajoutés quotidienement pour être à la hauteur de vos
@@ -68,23 +67,51 @@ export default function ProductsList() {
 }
 
 function ProductCard({ product }) {
-  const [image, setImage] = useState();
+  const [image, setImage] = useState("x");
 
-  useEffect(() => {
-    axios
-      .get(`${media}/upload/one?id=${product.pictures[0]}`)
-      .then((res) => {
-        setImage(res.data.image.image);
-      })
-      .catch((err) => {
-        console.log("Error : ", err);
-      });
-  });
+  // const arrayBufferToBase64 = async (buffer) => {
+  //   var binary = "";
+  //   var bytes = [].slice.call(new Uint8Array(buffer));
+  //   await bytes.forEach((b) => (binary += String.fromCharCode(b)));
+  //   return window.btoa(binary);
+  // };
+
+  // async function stream2buffer(stream) {
+  //   console.log(stream);
+  //   return await new Promise((resolve, reject) => {
+  //     const _buf = [];
+
+  //     stream.on("data", (chunk) => _buf.push(chunk));
+  //     stream.on("end", () => resolve(Buffer.concat(_buf)));
+  //     stream.on("error", (err) => reject(err));
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   // setImage(`${media}/files/${product.pictures[0]}`);
+  //   // console.log(image);
+  //   // fetch(`${media}/files/${product.pictures[0]}`)
+  //   //   .then((res) => res.json())
+  //   //   .then(async (data) => {
+  //   //     console.log(data);
+  //   //     var base64Flag = "data:image/png;base64,";
+  //   //     // var buf = await stream2buffer(data.body);
+  //   //     var imageStr = await arrayBufferToBase64(data.data);
+  //   //     setImage({
+  //   //       img: base64Flag + imageStr,
+  //   //     });
+  //   //     console.log(image);
+  //   //   });
+  // }, []);
 
   return (
     <div className="home3ProductCard">
       <div className="home3ProductCardImageC">
-        <img src={image} className="home3ProductCardImage" alt="img" />
+        <img
+          src={`${media}/files/${product.pictures[0]}`}
+          className="home3ProductCardImage"
+          alt="img"
+        />
       </div>
       <div className="home3ProductBottom">
         <div className="home3ProductBottomLeft">
