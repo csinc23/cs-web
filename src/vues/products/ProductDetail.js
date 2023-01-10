@@ -11,7 +11,7 @@ import { api, media } from "../../global";
 export default function ProductDetail() {
   const { search } = useLocation();
   const [product, setProduct] = useState();
-  const [image, setImage] = useState();
+  // const [image, setImage] = useState();
 
   useEffect(() => {
     axios
@@ -19,14 +19,14 @@ export default function ProductDetail() {
       .then((p) => {
         console.log(p);
         setProduct(p.data);
-        axios
-          .get(`${media}/upload/one?id=${p.data.pictures[0]}`)
-          .then((res) => {
-            setImage(res.data.image.image);
-          })
-          .catch((err) => {
-            console.log("Error : ", err);
-          });
+        // axios
+        //   .get(`${media}/upload/one?id=${p.data.pictures[0]}`)
+        //   .then((res) => {
+        //     setImage(res.data.image.image);
+        //   })
+        //   .catch((err) => {
+        //     console.log("Error : ", err);
+        //   });
       })
       .catch((err) => {
         console.log("Error : ", err);
@@ -41,7 +41,11 @@ export default function ProductDetail() {
           <div className="productDetailData">
             <div className="productDetailDataLeft">
               <div className="productDetailImageContainer">
-                <img className="productDetailImage" src={image} alt="img" />
+                <img
+                  className="productDetailImage"
+                  src={`${media}/files/${product.pictures[0]}`}
+                  alt="img"
+                />
               </div>
 
               <div className="productDetailPrice">
