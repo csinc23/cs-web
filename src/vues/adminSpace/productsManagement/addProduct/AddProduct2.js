@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-var imagesToRender;
+// var imagesToRender;
 
 function AddProduct2({ user }) {
   // const [category, setCategory] = useState("Themes");
