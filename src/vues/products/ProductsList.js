@@ -9,7 +9,7 @@ import EcommHeader from "../../components/headers/EcommHeader";
 import "./productsList.css";
 
 export default function ProductsList() {
-  const [products, setProducts] = useState();
+  // const [products, setProducts] = useState();
   const [resultsRender, setResultsRender] = useState([]);
   useState(() => {
     axios
@@ -25,7 +25,7 @@ export default function ProductsList() {
             </div>,
           ]);
         }
-        setProducts(response.data);
+        // setProducts(response.data);
       })
       .catch((error) => {
         console.log("error: ", error);
@@ -67,7 +67,7 @@ export default function ProductsList() {
 }
 
 function ProductCard({ product }) {
-  const [image, setImage] = useState("x");
+  // const [image, setImage] = useState("x");
 
   // const arrayBufferToBase64 = async (buffer) => {
   //   var binary = "";

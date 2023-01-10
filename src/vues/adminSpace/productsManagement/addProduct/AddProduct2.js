@@ -19,13 +19,13 @@ var imagesToRender;
 
 function AddProduct2({ user }) {
   // const [category, setCategory] = useState("Themes");
-  const [item, setItem] = useState();
+  //   const [item, setItem] = useState();
   const productName = useRef();
   const description = useRef();
   const price = useRef();
   const oldPrice = useRef();
   const [image, setImage] = useState();
-  const [imagePreview, setImagePreview] = useState();
+  //   const [imagePreview, setImagePreview] = useState();
   const { isFetching } = useContext(AuthContext);
 
   const saveImage = async () => {
@@ -60,7 +60,7 @@ function AddProduct2({ user }) {
       setImage({
         image: file,
       });
-      setImagePreview(reader.result);
+      //   setImagePreview(reader.result);
     };
   };
 

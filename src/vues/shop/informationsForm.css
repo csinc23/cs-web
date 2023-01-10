@@ -11,14 +11,14 @@
 }
 
 .infoFormWrapper {
-  /* width: 100%; */
-  height: 70%;
+  width: 50%;
+  height: 80%;
   display: flex;
   margin-top: 15vh;
+  margin-bottom: 10vh;
   /* margin-bottom: 7vh; */
 }
 
-.infoFormLeft,
 .infoFormRight {
   /* flex: 1; */
   display: flex;

@@ -5,7 +5,7 @@ import Login from "./vues/login/Login";
 import Register from "./vues/register/Register";
 import { connect } from "react-redux";
 import Home3 from "./vues/home/Home3";
-import AddProduct from "./vues/adminSpace/productsManagement/addProduct/AddProduct";
+// import AddProduct from "./vues/adminSpace/productsManagement/addProduct/AddProduct";
 import ProductDetail from "./vues/products/ProductDetail";
 import ProductsList from "./vues/products/ProductsList";
 import InformationsForm from "./vues/shop/InformationsForm";
