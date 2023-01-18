@@ -10,11 +10,13 @@ import useWindowDimensions from "../../components/helpers/useWindowDimensions";
 
 export default function Home3() {
   const [resultsRender, setResultsRender] = useState([]);
+  // const [products, setProducts] = useState();
   // const productId = "63bc610b4fb44700296b93ff";
   useEffect(() => {
     axios
       .get(`${api}/api/product/all`)
       .then((p) => {
+        // setProducts(p.data);
         for (var i = 0; i < p.data.length; i += 3) {
           setResultsRender([
             ...resultsRender,
@@ -81,7 +83,7 @@ export default function Home3() {
                 <ProductCard product={product} />
                 <ProductCard product={product} /> */}
 
-                {resultsRender}
+                {resultsRender[0]}
               </div>
             ) : null}
           </div>
@@ -152,7 +154,7 @@ export default function Home3() {
                 {/* <ProductCard product={product} />
                 <ProductCard product={product} />
                 <ProductCard product={product} /> */}
-                {resultsRender}
+                {resultsRender[0]}
               </div>
             ) : null}
           </div>
