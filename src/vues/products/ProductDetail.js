@@ -17,7 +17,6 @@ export default function ProductDetail() {
     axios
       .get(`${api}/api/product/one/${search.slice(1)}`)
       .then((p) => {
-        console.log(p);
         setProduct(p.data);
         // axios
         //   .get(`${media}/upload/one?id=${p.data.pictures[0]}`)

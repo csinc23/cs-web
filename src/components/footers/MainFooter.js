@@ -15,7 +15,7 @@ export default function MainFooter() {
           <div className="home3FooterUpperLeft">
             <img
               className="home3FooterUpperLeftImage"
-              src={require("../../assets/images/logos/1.png")}
+              src={require("../../assets/images/logos/logoBrown.jpeg")}
               alt="img"
             />
           </div>

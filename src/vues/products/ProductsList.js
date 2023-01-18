@@ -67,62 +67,27 @@ export default function ProductsList() {
 }
 
 function ProductCard({ product }) {
-  // const [image, setImage] = useState("x");
-
-  // const arrayBufferToBase64 = async (buffer) => {
-  //   var binary = "";
-  //   var bytes = [].slice.call(new Uint8Array(buffer));
-  //   await bytes.forEach((b) => (binary += String.fromCharCode(b)));
-  //   return window.btoa(binary);
-  // };
-
-  // async function stream2buffer(stream) {
-  //   console.log(stream);
-  //   return await new Promise((resolve, reject) => {
-  //     const _buf = [];
-
-  //     stream.on("data", (chunk) => _buf.push(chunk));
-  //     stream.on("end", () => resolve(Buffer.concat(_buf)));
-  //     stream.on("error", (err) => reject(err));
-  //   });
-  // }
-
-  // useEffect(() => {
-  //   // setImage(`${media}/files/${product.pictures[0]}`);
-  //   // console.log(image);
-  //   // fetch(`${media}/files/${product.pictures[0]}`)
-  //   //   .then((res) => res.json())
-  //   //   .then(async (data) => {
-  //   //     console.log(data);
-  //   //     var base64Flag = "data:image/png;base64,";
-  //   //     // var buf = await stream2buffer(data.body);
-  //   //     var imageStr = await arrayBufferToBase64(data.data);
-  //   //     setImage({
-  //   //       img: base64Flag + imageStr,
-  //   //     });
-  //   //     console.log(image);
-  //   //   });
-  // }, []);
-
   return (
-    <div className="home3ProductCard">
-      <div className="home3ProductCardImageC">
+    <div className="productListProductCard">
+      <div className="productListProductCardImageC">
         <img
           src={`${media}/files/${product.pictures[0]}`}
-          className="home3ProductCardImage"
+          className="productListProductCardImage"
           alt="img"
         />
       </div>
-      <div className="home3ProductBottom">
-        <div className="home3ProductBottomLeft">
-          <div className="home3ProductPrice">
-            <text className="home3ProductPriceBefore">
+      <div className="productListProductBottom">
+        <div className="productListProductBottomLeft">
+          <div className="productListProductPrice">
+            <text className="productListProductPriceBefore">
               <strike>{product.oldPrice} dh</strike>
             </text>
-            <text className="home3ProductPriceAfter">{product.price} dh</text>
+            <text className="productListProductPriceAfter">
+              {product.price} dh
+            </text>
           </div>
         </div>
-        <div className="home3ProductBottomRight">
+        <div className="productListProductBottomRight">
           {/* <IconButton color="primary" alt="Save">
               <SaveAltIcon fontSize="small" />
             </IconButton>

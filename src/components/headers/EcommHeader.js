@@ -3,6 +3,7 @@ import "./EcommHeader.css";
 import { Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
+import useWindowDimensions from "../helpers/useWindowDimensions";
 
 const mapStateToProps = (state) => {
   return {
@@ -11,7 +12,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-function EcommHeader({ user, dispatch, categories }) {
+function EcommHeader({ user, dispatch }) {
+  const { width } = useWindowDimensions();
   const history = useNavigate();
 
   const logoutAction = () => {
@@ -31,7 +33,7 @@ function EcommHeader({ user, dispatch, categories }) {
           >
             <img
               className="logo"
-              src={require("../../assets/images/logos/1.png")}
+              src={require("../../assets/images/logos/logoBrown.jpeg")}
               alt=""
             />
           </div>
@@ -39,25 +41,51 @@ function EcommHeader({ user, dispatch, categories }) {
           {/* <text className="headerText">Themes Platform</text> */}
         </div>
         <div className="topHeaderRight">
-          <Button color="success" component={Link} to="/home">
+          <Button
+            color="success"
+            size={width < 650 ? "small" : "medium"}
+            component={Link}
+            to="/home"
+          >
             Home
           </Button>
-          <Button color="success" component={Link} to="/home">
+          <Button
+            color="success"
+            size={width < 650 ? "small" : "medium"}
+            component={Link}
+            to="/home"
+          >
             About
           </Button>
-          <Button color="success" component={Link} to="/home">
+          <Button
+            color="success"
+            size={width < 650 ? "small" : "medium"}
+            component={Link}
+            to="/home"
+          >
             FAQ
           </Button>
-          <Button color="success" component={Link} to="/home">
+          <Button
+            color="success"
+            size={width < 650 ? "small" : "medium"}
+            component={Link}
+            to="/home"
+          >
             Blog
           </Button>
-          <Button color="success" component={Link} to="/productsList">
+          <Button
+            color="success"
+            size={width < 650 ? "small" : "medium"}
+            component={Link}
+            to="/productsList"
+          >
             Our products
           </Button>
           {user === null ? (
             <Button
               // color="success"
               component={Link}
+              size={width < 650 ? "small" : "medium"}
               to="/login"
               style={{ marginRight: "6vw" }}
             >
@@ -66,6 +94,7 @@ function EcommHeader({ user, dispatch, categories }) {
           ) : (
             <form id="submit" noValidate onSubmit={logoutAction}>
               <Button
+                size={width < 650 ? "small" : "medium"}
                 color="error"
                 style={{ marginRight: "6vw" }}
                 type="submit"

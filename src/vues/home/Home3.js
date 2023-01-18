@@ -6,16 +6,25 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import MainFooter from "../../components/footers/MainFooter";
 import { api, media } from "../../global";
+import useWindowDimensions from "../../components/helpers/useWindowDimensions";
 
 export default function Home3() {
-  // const [image, setImage] = useState();
-  const [product, setProduct] = useState();
-  const productId = "63bc610b4fb44700296b93ff";
+  const [resultsRender, setResultsRender] = useState([]);
+  // const productId = "63bc610b4fb44700296b93ff";
   useEffect(() => {
     axios
-      .get(`${api}/api/product/one/${productId}`)
+      .get(`${api}/api/product/all`)
       .then((p) => {
-        setProduct(p.data);
+        for (var i = 0; i < p.data.length; i += 3) {
+          setResultsRender([
+            ...resultsRender,
+            <div style={{ flexDirection: "row", marginBottom: "4vh" }} key={i}>
+              {p.data.slice(i, i + 3).map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))}
+            </div>,
+          ]);
+        }
         // setImage(`${media}/files/${p.data.pictures[0]}`);
       })
       .catch((err) => {
@@ -58,7 +67,7 @@ export default function Home3() {
             <text className="home3ProductsTitleText">Our Best Sells !</text>
           </div>
           <div className="home3ProductsCards">
-            {product ? (
+            {resultsRender ? (
               <div
                 style={{
                   width: "100%",
@@ -68,9 +77,11 @@ export default function Home3() {
                   justifyContent: "space-evenly",
                 }}
               >
+                {/* <ProductCard product={product} />
                 <ProductCard product={product} />
-                <ProductCard product={product} />
-                <ProductCard product={product} />
+                <ProductCard product={product} /> */}
+
+                {resultsRender}
               </div>
             ) : null}
           </div>
@@ -128,7 +139,7 @@ export default function Home3() {
             </text>
           </div>
           <div className="home3ProductsCards">
-            {product ? (
+            {resultsRender ? (
               <div
                 style={{
                   width: "100%",
@@ -138,9 +149,10 @@ export default function Home3() {
                   justifyContent: "space-evenly",
                 }}
               >
+                {/* <ProductCard product={product} />
                 <ProductCard product={product} />
-                <ProductCard product={product} />
-                <ProductCard product={product} />
+                <ProductCard product={product} /> */}
+                {resultsRender}
               </div>
             ) : null}
           </div>
@@ -180,6 +192,7 @@ export default function Home3() {
 }
 
 function ProductCard({ product }) {
+  const { width } = useWindowDimensions();
   return (
     <div className="home3ProductCard">
       <div className="home3ProductCardImageC">
@@ -207,6 +220,7 @@ function ProductCard({ product }) {
           </IconButton>
            */}
           <Button
+            size={width < 650 ? "small" : "medium"}
             component={Link}
             to={{
               pathname: "/productDetail",
