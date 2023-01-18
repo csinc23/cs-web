@@ -30,7 +30,7 @@ export default function Home3() {
       .catch((err) => {
         console.log("Error : ", err);
       });
-  }, []);
+  });
   return (
     <div>
       <EcommHeader />
