@@ -23,14 +23,14 @@
 
   .productListProductCard {
     height: 30vh;
-    width: 30vw;
+    width: 35vw;
     border: 1px solid #000;
     border-radius: 10px;
   }
 
   .productListProductCard:hover {
     height: 31vh;
-    width: 32vw;
+    width: 37vw;
     border: 2px solid #000;
     border-radius: 8px;
     cursor: zoom-in;

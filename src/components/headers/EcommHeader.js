@@ -28,7 +28,7 @@ function EcommHeader({ user, dispatch }) {
         <div className="topHeaderLeft">
           <div
             onClick={() => {
-              history("/home2");
+              history("/home");
             }}
           >
             <img
@@ -41,14 +41,17 @@ function EcommHeader({ user, dispatch }) {
           {/* <text className="headerText">Themes Platform</text> */}
         </div>
         <div className="topHeaderRight">
-          <Button
-            color="success"
-            size={width < 650 ? "small" : "medium"}
-            component={Link}
-            to="/home"
-          >
-            Home
-          </Button>
+          {width > 650 ? (
+            <Button
+              color="success"
+              size={width < 650 ? "small" : "medium"}
+              component={Link}
+              to="/home"
+            >
+              Home
+            </Button>
+          ) : null}
+
           <Button
             color="success"
             size={width < 650 ? "small" : "medium"}
@@ -57,14 +60,17 @@ function EcommHeader({ user, dispatch }) {
           >
             About
           </Button>
-          <Button
-            color="success"
-            size={width < 650 ? "small" : "medium"}
-            component={Link}
-            to="/home"
-          >
-            FAQ
-          </Button>
+          {width > 650 ? (
+            <Button
+              color="success"
+              size={width < 650 ? "small" : "medium"}
+              component={Link}
+              to="/home"
+            >
+              FAQ
+            </Button>
+          ) : null}
+
           <Button
             color="success"
             size={width < 650 ? "small" : "medium"}
