@@ -12,14 +12,19 @@ var divsToRender = [];
 
 export default function Home3() {
   const [resultsRender, setResultsRender] = useState([]);
-  // const [products, setProducts] = useState();
-  // const productId = "63bc610b4fb44700296b93ff";
+  const { width } = useWindowDimensions();
+  const [increment, setIncrement] = useState();
+
+  useEffect(() => {
+    setIncrement(width < 850 ? 2 : 3);
+  }, [increment, width]);
+
   useEffect(() => {
     axios
       .get(`${api}/api/product/all`)
       .then((p) => {
         // setProducts(p.data);
-        for (var i = 0; i < p.data.length; i += 3) {
+        for (var i = 0; i < p.data.length; i += increment) {
           divsToRender.push(
             <div
               style={{
@@ -30,7 +35,7 @@ export default function Home3() {
               }}
               key={i}
             >
-              {p.data.slice(i, i + 3).map((product) => (
+              {p.data.slice(i, i + increment).map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
             </div>
@@ -50,7 +55,7 @@ export default function Home3() {
       .catch((err) => {
         console.log("Error : ", err);
       });
-  });
+  }, [increment, resultsRender]);
   return (
     <div>
       <EcommHeader />
@@ -88,7 +93,15 @@ export default function Home3() {
           </div>
           <div className="home3ProductsCards">
             {resultsRender ? (
-              <div>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-evenly",
+                }}
+              >
                 {/* <ProductCard product={product} />
                 <ProductCard product={product} />
                 <ProductCard product={product} /> */}
