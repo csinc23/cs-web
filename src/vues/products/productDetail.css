@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
   .productDetailContainer {
     /* background-color: #f6fffd; */
     background-image: url("../../assets/images/backgrounds/100.jpg");
@@ -116,7 +116,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 850px) {
   .productDetailContainer {
     /* background-color: #f6fffd; */
     background-image: url("../../assets/images/backgrounds/100.jpg");

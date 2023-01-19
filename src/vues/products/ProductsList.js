@@ -1,36 +1,77 @@
-import { Button } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { api, media } from "../../global";
 import MainFooter from "../../components/footers/MainFooter";
 import EcommHeader from "../../components/headers/EcommHeader";
 import "./productsList.css";
+import useWindowDimensions from "../../components/helpers/useWindowDimensions";
+
+var divsToRender = [];
+
+const categories = [
+  "Oral",
+  "Skin",
+  "Hair",
+  "Sun",
+  "Decorative",
+  "Body",
+  "Perfume",
+  "Accessories",
+  "All",
+];
 
 export default function ProductsList() {
-  // const [products, setProducts] = useState();
+  const { width } = useWindowDimensions();
+  const [increment, setIncrement] = useState();
   const [resultsRender, setResultsRender] = useState([]);
-  useState(() => {
+  const [category, setCategory] = useState("All");
+
+  useEffect(() => {
+    setIncrement(width < 850 ? 2 : 3);
+  }, [increment, width]);
+
+  useEffect(() => {
     axios
       .get(`${api}/api/product/all`)
       .then((response) => {
-        for (var i = 0; i < response.data.length; i += 3) {
-          setResultsRender([
-            ...resultsRender,
-            <div style={{ flexDirection: "row", marginBottom: "4vh" }} key={i}>
-              {response.data.slice(i, i + 3).map((product) => (
+        for (var i = 0; i < response.data.length; i += increment) {
+          divsToRender.push(
+            <div
+              style={{
+                display: "flex",
+                marginBottom: "4vh",
+                width: "100%",
+                justifyContent: "space-evenly",
+              }}
+              key={i}
+            >
+              {response.data.slice(i, i + increment).map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
-            </div>,
-          ]);
+            </div>
+          );
+          setResultsRender(divsToRender);
         }
-        // setProducts(response.data);
       })
       .catch((error) => {
         console.log("error: ", error);
       });
-  }, []);
+  }, [increment, resultsRender]);
+
+  const handleCategoryChange = (e) => {
+    e.preventDefault();
+    setCategory(e.target.value);
+  };
+
   return (
     <div className="productsListContainer">
       <EcommHeader />
@@ -46,7 +87,27 @@ export default function ProductsList() {
         <div className="productsListBodyHeader">
           <text className="productsListBodyTitle">Our products</text>
           <div className="productsListBodyFilter">
-            <text className="productsListBodyFilterTitle">Filter</text>
+            {/* <text className="productsListBodyFilterTitle">Filter</text> */}
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Category</InputLabel>
+              <Select
+                // labelId="demo-simple-select-label"
+                // id="demo-simple-select"
+                // noderef={category}
+                value={category}
+                label="Category"
+                onChange={handleCategoryChange}
+              >
+                {categories &&
+                  categories.map((category) => {
+                    return (
+                      <MenuItem key={category} value={category}>
+                        {category}
+                      </MenuItem>
+                    );
+                  })}
+              </Select>
+            </FormControl>
           </div>
         </div>
         <div className="productsListCards">

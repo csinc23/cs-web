@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
   .headerContainer {
     width: 100vw;
     /* background-image: linear-gradient(to right, #f3f3a3, #f0eca9); */
@@ -68,7 +68,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 850px) {
   .headerContainer {
     width: 100vw;
     /* background-image: linear-gradient(to right, #f3f3a3, #f0eca9); */

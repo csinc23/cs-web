@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
   .productsListHeaderText {
     /* margin-top: 5vh; */
     height: 20vh;
@@ -38,12 +38,13 @@
 
   .productListProductCardImageC {
     height: 20vh;
-    width: 30vw;
+    width: 100%;
   }
 
   .productListProductCardImage {
-    height: 20vh;
-    width: 30vw;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
   }
 
   .productListProductBottom {
@@ -75,7 +76,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 1vh;
+    margin-top: 3vh;
+  }
+
+  .productListProductPriceBefore {
+    font-size: 11px;
+  }
+
+  .productListProductPriceAfter {
+    font-size: 11px;
+    font-weight: 600;
   }
 
   .productListProductBottom {
@@ -109,7 +119,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 850px) {
   .productsListHeaderText {
     /* margin-top: 5vh; */
     height: 20vh;
@@ -149,12 +159,13 @@
 
   .productListProductCardImageC {
     height: 20vh;
-    width: 20vw;
+    width: 100%;
   }
 
   .productListProductCardImage {
-    height: 20vh;
-    width: 20vw;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
   }
 
   .productListProductBottom {
@@ -206,7 +217,7 @@
     justify-content: space-between;
     padding-right: 10vw;
     padding-left: 3vw;
-    margin-bottom: 6vh;
+    margin-bottom: 10vh;
   }
 
   .productsListBodyTitle {
@@ -217,5 +228,9 @@
   .productsListBodyFilterTitle {
     font-weight: 400;
     font-size: 20px;
+  }
+
+  .productsListBodyFilter {
+    width: 10vw;
   }
 }

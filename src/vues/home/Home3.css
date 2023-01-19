@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
   .home3Image {
     top: 0;
     height: 80vh;
@@ -41,6 +41,7 @@
   }
 
   .Home3ImageText3Container {
+    padding-top: 1vh;
     margin-top: 8vh;
     /* border: 0.01px solid #fff; */
     border-radius: 5px;
@@ -53,11 +54,12 @@
   }
 
   .Home3ImageText3Container:hover {
-    margin-top: 10vh;
+    padding-top: 1vh;
+    margin-top: 8vh;
     /* border: 0.01px solid #fff; */
     border-radius: 5px;
-    height: 8vh;
-    width: 31vw;
+    height: 9vh;
+    width: 41vw;
     background-color: rgb(82, 40, 40);
     display: flex;
     align-items: center;
@@ -224,9 +226,9 @@
 
   .home3ProductsTitleText {
     margin-top: 8vh;
-    font-size: 18px;
+    font-size: 20px;
     font-family: cursive;
-    font-weight: 100;
+    font-weight: 300;
   }
 
   .home3ProductPrice {
@@ -315,7 +317,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 850px) {
   .home3Image {
     top: 0;
     height: auto;
@@ -484,10 +486,10 @@
 
   .home3ProductsCards {
     margin-top: 6vh;
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
     width: 100vw;
   }
 
@@ -508,12 +510,13 @@
 
   .home3ProductCardImageC {
     height: 20vh;
-    width: 20vw;
+    width: 100%;
   }
 
   .home3ProductCardImage {
     height: 20vh;
-    width: 20vw;
+    width: 100%;
+    border-radius: 10px;
   }
 
   .home3ProductBottom {

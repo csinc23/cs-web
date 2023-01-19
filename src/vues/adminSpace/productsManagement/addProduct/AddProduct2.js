@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../../../context/AuthContext";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress, Select } from "@material-ui/core";
 import "./addProduct.css";
 import { addProduct } from "../../../../service/apiCalls";
 import { connect } from "react-redux";
@@ -8,6 +8,18 @@ import axios from "axios";
 import EcommHeader from "../../../../components/headers/EcommHeader";
 import { media } from "../../../../global";
 import MainFooter from "../../../../components/footers/MainFooter";
+import { FormControl, InputLabel, MenuItem } from "@mui/material";
+
+const categories = [
+  "Oral",
+  "Skin",
+  "Hair",
+  "Sun",
+  "Decorative",
+  "Body",
+  "Perfume",
+  "Accessories",
+];
 
 const mapStateToProps = (state) => {
   return {
@@ -18,7 +30,7 @@ const mapStateToProps = (state) => {
 // var imagesToRender;
 
 function AddProduct2({ user }) {
-  // const [category, setCategory] = useState("Themes");
+  const [category, setCategory] = useState("Hair");
   //   const [item, setItem] = useState();
   const productName = useRef();
   const description = useRef();
@@ -70,7 +82,7 @@ function AddProduct2({ user }) {
     const imageId = await saveImage();
     addProduct({
       owner: { id: user._id, name: user.name },
-      // category: category,
+      category: category,
       name: productName.current.value,
       pictures: [imageId],
       description: description.current.value,
@@ -79,10 +91,19 @@ function AddProduct2({ user }) {
     })
       .then((res) => {
         console.log("Product saved successfully !");
+        productName.current.value = "";
+        description.current.value = "";
+        price.current.value = "";
+        oldPrice.current.value = "";
       })
       .catch((error) => {
         console.log("Error : ", error);
       });
+  };
+
+  const handleCategoryChange = (e) => {
+    e.preventDefault();
+    setCategory(e.target.value);
   };
 
   return (
@@ -92,6 +113,26 @@ function AddProduct2({ user }) {
         <div className="addProductWrapper">
           <div className="addProductRight">
             <form className="addProductBox" onSubmit={handleClick}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                <Select
+                  // labelId="demo-simple-select-label"
+                  // id="demo-simple-select"
+                  // noderef={category}
+                  value={category}
+                  label="Category"
+                  onChange={handleCategoryChange}
+                >
+                  {categories &&
+                    categories.map((category) => {
+                      return (
+                        <MenuItem key={category} value={category}>
+                          {category}
+                        </MenuItem>
+                      );
+                    })}
+                </Select>
+              </FormControl>
               <input
                 placeholder="Name"
                 type="text"

@@ -5,8 +5,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import GoogleIcon from "@mui/icons-material/Google";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { useNavigate } from "react-router-dom";
+import useWindowDimensions from "../helpers/useWindowDimensions";
 
 export default function MainFooter() {
+  const { width } = useWindowDimensions();
   const navigate = useNavigate();
   return (
     <div className="home3FooterContainer">
@@ -73,34 +75,46 @@ export default function MainFooter() {
                 <text className="home3FooterLinksText">Cart</text>
               </div>
             </div>
-            <div className="home3FooterUpperLinksRow">
-              <div
-                className="home3FooterLink"
-                onClick={() => {
-                  navigate("/blog");
-                }}
-              >
-                <text className="home3FooterLinksText">Blog</text>
+            {width > 850 ? (
+              <div className="home3FooterUpperLinksRow">
+                <div
+                  className="home3FooterLink"
+                  onClick={() => {
+                    navigate("/blog");
+                  }}
+                >
+                  <text className="home3FooterLinksText">Blog</text>
+                </div>
+                <div
+                  className="home3FooterLink"
+                  onClick={() => {
+                    navigate("/contacts");
+                  }}
+                >
+                  <text className="home3FooterLinksText">Contact Us</text>
+                </div>
               </div>
-              <div
-                className="home3FooterLink"
-                onClick={() => {
-                  navigate("/contacts");
-                }}
-              >
-                <text className="home3FooterLinksText">Contact Us</text>
-              </div>
-            </div>
+            ) : null}
           </div>
           <div className="home3FooterUpperIcons">
-            <div
+            <a
+              href="https://web.facebook.com/people/Hyncos/100089162356190"
               className="home3FooterIcon"
               onClick={() => {
                 navigate("/home");
               }}
             >
               <FacebookIcon />
-            </div>
+            </a>
+            <a
+              href="https://www.instagram.com/hyncos23/"
+              className="home3FooterIcon"
+              onClick={() => {
+                navigate("/home");
+              }}
+            >
+              <InstagramIcon />
+            </a>
             <div
               className="home3FooterIcon"
               onClick={() => {
@@ -109,27 +123,21 @@ export default function MainFooter() {
             >
               <TwitterIcon />
             </div>
-            <div
-              className="home3FooterIcon"
-              onClick={() => {
-                navigate("/home");
-              }}
-            >
-              <GoogleIcon />
-            </div>
-            <div
-              className="home3FooterIcon"
-              onClick={() => {
-                navigate("/home");
-              }}
-            >
-              <InstagramIcon />
-            </div>
+            {width > 850 ? (
+              <div
+                className="home3FooterIcon"
+                onClick={() => {
+                  navigate("/home");
+                }}
+              >
+                <GoogleIcon />
+              </div>
+            ) : null}
           </div>
         </div>
         <div className="home3FooterBottom">
           <text className="home3FooterBottomText">
-            Copyright 2023@ hyncos Inc.
+            Copyright @2023 hyncos Inc.
           </text>
         </div>
       </div>

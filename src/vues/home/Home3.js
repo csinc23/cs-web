@@ -8,6 +8,8 @@ import MainFooter from "../../components/footers/MainFooter";
 import { api, media } from "../../global";
 import useWindowDimensions from "../../components/helpers/useWindowDimensions";
 
+var divsToRender = [];
+
 export default function Home3() {
   const [resultsRender, setResultsRender] = useState([]);
   // const [products, setProducts] = useState();
@@ -18,15 +20,31 @@ export default function Home3() {
       .then((p) => {
         // setProducts(p.data);
         for (var i = 0; i < p.data.length; i += 3) {
-          setResultsRender([
-            ...resultsRender,
-            <div style={{ flexDirection: "row", marginBottom: "4vh" }} key={i}>
+          divsToRender.push(
+            <div
+              style={{
+                display: "flex",
+                marginBottom: "4vh",
+                width: "100%",
+                justifyContent: "space-around",
+              }}
+              key={i}
+            >
               {p.data.slice(i, i + 3).map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}
-            </div>,
-          ]);
+            </div>
+          );
+          // setResultsRender([
+          //   ...resultsRender,
+          //   <div style={{ flexDirection: "row", marginBottom: "4vh" }} key={i}>
+          //     {p.data.slice(i, i + 3).map((product) => (
+          //       <ProductCard key={product._id} product={product} />
+          //     ))}
+          //   </div>,
+          // ]);
         }
+        setResultsRender(divsToRender[0]);
         // setImage(`${media}/files/${p.data.pictures[0]}`);
       })
       .catch((err) => {
@@ -70,20 +88,12 @@ export default function Home3() {
           </div>
           <div className="home3ProductsCards">
             {resultsRender ? (
-              <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "space-evenly",
-                }}
-              >
+              <div>
                 {/* <ProductCard product={product} />
                 <ProductCard product={product} />
                 <ProductCard product={product} /> */}
 
-                {resultsRender[0]}
+                {resultsRender}
               </div>
             ) : null}
           </div>
@@ -154,7 +164,7 @@ export default function Home3() {
                 {/* <ProductCard product={product} />
                 <ProductCard product={product} />
                 <ProductCard product={product} /> */}
-                {resultsRender[0]}
+                {divsToRender[1]}
               </div>
             ) : null}
           </div>
